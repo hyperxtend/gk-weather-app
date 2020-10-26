@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SiteContainer from '../../components/site-container';
+import UserCoordinates from '../../components/user-coordinates';
 
-const WeatherPage = () => <SiteContainer data-qa="weather-page" />;
+const WeatherPage = () => <UserCoordinates data-qa="user-coordinates" />;
 
 export default WeatherPage;
