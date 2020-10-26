@@ -2,7 +2,7 @@ import React from 'react';
 import { useAsync, IfFulfilled, IfPending, IfRejected } from 'react-async';
 import { Spinner } from 'react-bootstrap';
 
-import getUsersLocation from '../../utils';
+import { getUsersLocation } from '../../utils';
 
 // eslint-disable-next-line consistent-return
 const useUsersLocation = async () => {
@@ -10,12 +10,14 @@ const useUsersLocation = async () => {
     const response = await getUsersLocation();
     return response;
   } catch (error) {
-    Promise.reject(new Error(error));
+    Promise.reject(error);
   }
 };
 
 const UserCoordinates = () => {
-  const asyncData = useAsync({ promiseFn: useUsersLocation });
+  const asyncData = useAsync({
+    promiseFn: useUsersLocation,
+  });
 
   return (
     <>
@@ -23,7 +25,8 @@ const UserCoordinates = () => {
         <h2>Could not find your location</h2>
       </IfRejected>
       <IfPending state={asyncData} data-qa="location-pending">
-        <Spinner animation="border" variant="primary" size="lg" />
+        <Spinner animation="border" variant="primary" size="xl" />
+        <h4>Trying to find your location...</h4>
       </IfPending>
       <IfFulfilled state={asyncData} data-qa="location-fulfilled">
         {(data) => (
