@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledSiteContainer = styled(Container)``;
 
 const SiteContainer = () => (
-  <StyledSiteContainer>
+  <StyledSiteContainer data-qa="site-container">
     <h1>You got this!</h1>
   </StyledSiteContainer>
 );
