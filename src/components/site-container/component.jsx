@@ -12,6 +12,7 @@ const StyledSiteContainer = styled.div`
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   letter-spacing: 1px;
+  overflow: hidden;
 `;
 
 export default StyledSiteContainer;
