@@ -21,7 +21,7 @@ describe('<WeatherData />', () => {
     });
   });
 
-  describe('Pending State', () => {
+  describe('Fulfilled State', () => {
     beforeEach(() => {
       reactAsync.useAsync = jest.fn().mockReturnValue({
         isPending: false,
