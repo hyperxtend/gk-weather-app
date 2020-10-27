@@ -3,6 +3,7 @@ import { useAsync, IfFulfilled, IfPending, IfRejected } from 'react-async';
 import { Spinner } from 'react-bootstrap';
 
 import { getUsersLocation } from '../../utils';
+import GetWeather from '../weather-data';
 
 // eslint-disable-next-line consistent-return
 const useUsersLocation = async () => {
@@ -30,11 +31,7 @@ const UserCoordinates = () => {
       </IfPending>
       <IfFulfilled state={asyncData} data-qa="location-fulfilled">
         {(data) => (
-          <>
-            <h2>Showing you weather for</h2>
-            <h3>Latitude :{data.latitude}</h3>
-            <h3>Longitude :{data.longitude}</h3>
-          </>
+          <GetWeather latitude={data.latitude} longitude={data.longitude} />
         )}
       </IfFulfilled>
     </>

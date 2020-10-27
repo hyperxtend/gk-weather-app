@@ -31,4 +31,5 @@ export const getUsersLocation = () => {
   }
   return 'Geolocation is not supported by this browser';
 };
-export default getUsersLocation;
+
+export const roundOff = (number) => number.toFixed(0);
