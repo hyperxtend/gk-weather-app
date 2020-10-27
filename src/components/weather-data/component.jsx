@@ -21,7 +21,7 @@ const getWeatherData = async (latitude, longitude, key) => {
 };
 
 const StyledContainer = styled(Container)`
-  width: 30%;
+  width: 45%;
   background-color: rgba(250, 250, 250, 0.2);
   border-radius: 12px;
   display: flex;
@@ -36,6 +36,8 @@ const StyledContainer = styled(Container)`
   }
 
   @media (max-width: 1480px) {
+    width: 350px;
+    padding: 0.5rem;
     button {
       width: 50px;
     }
