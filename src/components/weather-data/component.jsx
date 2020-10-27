@@ -5,6 +5,7 @@ import { IfFulfilled, IfPending, IfRejected, useAsync } from 'react-async';
 import getWeatherConditions from '../../api';
 import APIKey from '../../api/constants';
 import { roundOff } from '../../utils';
+import RefreshButton from '../refresh-button/component';
 
 const getWeatherData = async (latitude, longitude, key) => {
   try {
@@ -49,6 +50,7 @@ const GetWeather = ({ latitude, longitude }) => {
                 alt="weather-icon"
               />
             </div>
+            <RefreshButton data-qa="refresh-button" />
           </div>
         )}
       </IfFulfilled>

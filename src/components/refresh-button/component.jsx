@@ -6,7 +6,9 @@ const refreshPage = () => window.location.reload();
 const RefreshButton = () => {
   return (
     <>
-      <Button onClick={() => refreshPage()}>Refresh</Button>
+      <Button data-qa="refresh-button" onClick={() => refreshPage()}>
+        Refresh
+      </Button>
     </>
   );
 };
