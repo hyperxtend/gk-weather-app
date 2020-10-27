@@ -36,14 +36,14 @@ const StyledContainer = styled(Container)`
   }
 
   @media (max-width: 1480px) {
-    width: 350px;
+    width: 400px;
     padding: 0.5rem;
     button {
       width: 50px;
     }
 
     @media (max-width: 700px) {
-      width: 250px;
+      width: 300px;
   }
 `;
 
