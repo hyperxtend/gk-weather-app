@@ -1,7 +1,8 @@
 import React from 'react';
 import { useAsync, IfFulfilled, IfPending, IfRejected } from 'react-async';
-import { Spinner } from 'react-bootstrap';
 
+import LoadingSpinner from '../loading-spinner';
+import ErrorMessage from '../error-message';
 import { getUsersLocation } from '../../utils';
 import GetWeather from '../weather-data';
 
@@ -23,11 +24,10 @@ const UserCoordinates = () => {
   return (
     <>
       <IfRejected state={asyncData} data-qa="location-rejected">
-        <h2>Could not find your location</h2>
+        <ErrorMessage errorMessage="Sorry could not find your location" />
       </IfRejected>
       <IfPending state={asyncData} data-qa="location-pending">
-        <Spinner animation="border" variant="primary" size="xl" />
-        <h4>Trying to find your location...</h4>
+        <LoadingSpinner loadingMessage="Trying to find your location..." />
       </IfPending>
       <IfFulfilled state={asyncData} data-qa="location-fulfilled">
         {(data) => (

@@ -3,7 +3,13 @@ import { render } from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import WeatherPage from './page/weather-page';
+import StyledSiteContainer from './components/site-container';
 
 const root = document.getElementById('root');
 
-render(<WeatherPage />, root);
+render(
+  <StyledSiteContainer>
+    <WeatherPage />
+  </StyledSiteContainer>,
+  root
+);
