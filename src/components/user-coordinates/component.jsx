@@ -3,7 +3,7 @@ import { useAsync, IfFulfilled, IfPending, IfRejected } from 'react-async';
 import { Spinner } from 'react-bootstrap';
 
 import { getUsersLocation } from '../../utils';
-import GetWeather from '../get-weather';
+import GetWeather from '../weather-data';
 
 // eslint-disable-next-line consistent-return
 const useUsersLocation = async () => {

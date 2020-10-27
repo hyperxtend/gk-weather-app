@@ -25,13 +25,13 @@ const GetWeather = ({ latitude, longitude }) => {
 
   return (
     <>
-      <IfRejected state={asyncData}>
+      <IfRejected state={asyncData} data-qa="weather-data-rejected">
         <h2>Sorry could not find data</h2>
       </IfRejected>
-      <IfPending state={asyncData}>
+      <IfPending state={asyncData} data-qa="weather-data-pending">
         <h2>Loading</h2>
       </IfPending>
-      <IfFulfilled state={asyncData}>
+      <IfFulfilled state={asyncData} data-qa="weather-data-fulfilled">
         {(data) => (
           <div>
             <h2>{data.name}</h2>
