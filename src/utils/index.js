@@ -33,3 +33,5 @@ export const getUsersLocation = () => {
 };
 
 export const roundOff = (number) => number.toFixed(0);
+
+export const milesToKilometersAHour = (number) => (number * 1.609).toFixed(2);
