@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spinner } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import styled from 'styled-components';
+
+const StyledContainer = styled(Container)`
+  text-align: center;
+`;
 
 const StyledSpinnerContainer = styled.div`
   margin-top: 2rem;
@@ -10,12 +14,12 @@ const StyledSpinnerContainer = styled.div`
 
 const LoadingSpinner = ({ loadingMessage }) => {
   return (
-    <>
+    <StyledContainer>
       <h2>{loadingMessage}</h2>
       <StyledSpinnerContainer>
         <Spinner animation="border" variant="light" />
       </StyledSpinnerContainer>
-    </>
+    </StyledContainer>
   );
 };
 

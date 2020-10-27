@@ -8,7 +8,7 @@ const StyledSiteContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background: linear-gradient(#60a8eb, #3b9cf7, #1983e6, #007aeb);
-  color: white;
+  color: #e1e4e6;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   letter-spacing: 1px;
