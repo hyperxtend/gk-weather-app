@@ -13,7 +13,12 @@ Click on [here](https://hyperxtend.github.io/gk-weather-app/) to view demo
 - Axios
 - React-Async
 
-## Available Scripts
+## To get project running
+
+- Clone project from this repo using the command 'git clone https://github.com/hyperxtend/gk-weather-app.git'
+- In file directory you cloned the project in run 'npm install' to install dependencies
+- Once dependencies have been installed run the command 'npm start'
+- In your browser navigate to [http://localhost:3000](http://localhost:3000) to view project
 
 ### `npm start`
 
