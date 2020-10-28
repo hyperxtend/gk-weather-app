@@ -12,12 +12,21 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
         'newlines-between': 'always',
       },
     ],
     'jsx-a11y/anchor-is-valid': 'off',
     'lines-between-class-members': 'off',
+    'consistent-return': 'off',
+    'no-alert': 'off',
     'object-curly-newline': ['error', { consistent: true }],
     'operator-linebreak': 'off',
     'react/jsx-one-expression-per-line': 'off',
