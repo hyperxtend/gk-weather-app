@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import * as reactAsync from 'react-async';
 import { select } from 'qa-utilities';
 
-import UserCoordinates from './component';
+import UserCoordinates, { useUsersLocation } from './component';
 
 describe('<UserCoordinates />', () => {
   const component = shallow(<UserCoordinates />);
@@ -48,5 +48,19 @@ describe('<UserCoordinates />', () => {
     test('checks if error message exists when state is rejected', () => {
       expect(component.find(select('error-message')).exists()).toBeTruthy();
     });
+  });
+});
+
+describe('useUsersLocation', () => {
+  test('checks if users location was rejected in promise', async () => {
+    await useUsersLocation().catch((error) =>
+      expect(error).rejects.toThrowError(new Error(error))
+    );
+  });
+
+  test('checks if users location was rejected in promise', async () => {
+    await useUsersLocation().catch((error) =>
+      expect(error).rejects.toThrowError(new Error(error))
+    );
   });
 });

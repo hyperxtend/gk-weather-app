@@ -6,12 +6,12 @@ import ErrorMessage from '../error-message';
 import { getUsersLocation } from '../../utils';
 import GetWeather from '../weather-data';
 
-const useUsersLocation = async () => {
+export const useUsersLocation = async () => {
   try {
     const response = await getUsersLocation();
     return response;
   } catch (error) {
-    Promise.reject(error);
+    return Promise.reject(error);
   }
 };
 
