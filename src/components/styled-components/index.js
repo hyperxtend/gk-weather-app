@@ -34,6 +34,8 @@ export const StyledSpinnerContainer = styled.div`
 export const StyledButton = styled(Button)`
   width: 10%;
   img {
+    width: 30px;
+    height: 30px;
     filter: invert(1);
   }
 
@@ -56,12 +58,15 @@ export const StyledDataContainer = styled(Container)`
   h1,
   h2 {
     font-size: 3rem;
+  }
+  
+  h2{
     padding-top: 1rem;
   }
 
   @media (max-width: 1480px) {
     width: 400px;
-    padding: 0.5rem;
+    padding: 1rem;
     button {
       width: 50px;
     }
@@ -73,6 +78,8 @@ export const StyledDataContainer = styled(Container)`
 
 export const WeatherIconContainer = styled.div`
   img {
+    width: 60px;
+    height: 60px;
     transform: scale(1.5);
   }
 `;
