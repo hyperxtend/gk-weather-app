@@ -1,10 +1,19 @@
-# Getting Started with Create React App
+# Weathery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View Weather conditions of you current location, get Today's temperature - the highs & low & even humidity
+
+## Project Demo
+
+Click on [here](https://hyperxtend.github.io/TicTacReact/) to view demo
+
+**This project was created using**
+
+- React
+- React-Bootstrap
+- Axios
+- React-Async
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
