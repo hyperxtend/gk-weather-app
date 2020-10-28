@@ -1,19 +1,19 @@
-export const handleLocationError = (errorCode) => {
-  switch (errorCode) {
-    case 1:
-      alert('User denied the request for Geolocation');
+export const handleLocationError = (error) => {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      alert('User denied the request for Geolocation.');
       break;
-    case 2:
-      alert('Location information is unavailable');
+    case error.POSITION_UNAVAILABLE:
+      alert('Location information is unavailable.');
       break;
-    case 3:
-      alert('The request to get user location timed out');
+    case error.TIMEOUT:
+      alert('The request to get user location timed out.');
       break;
-    case 4:
-      alert('An unknown error occurred');
+    case error.UNKNOWN_ERROR:
+      alert('An unknown error occurred.');
       break;
     default:
-      alert('An unknown error occurred');
+      alert('An unknown error occurred.');
       break;
   }
 };
