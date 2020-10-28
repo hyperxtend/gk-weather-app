@@ -3,12 +3,13 @@ import { render } from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import WeatherPage from './page/weather-page';
+import { StyledSiteContainer } from './components/styled-components';
 
 const root = document.getElementById('root');
 
 render(
-  <React.StrictMode>
+  <StyledSiteContainer>
     <WeatherPage />
-  </React.StrictMode>,
+  </StyledSiteContainer>,
   root
 );

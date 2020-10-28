@@ -1,15 +1,19 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+
+import { StyledButton } from '../styled-components';
+import refreshIcon from '../../assets/refresh-icon.png';
 
 const refreshPage = () => window.location.reload();
 
 const RefreshButton = () => {
   return (
-    <>
-      <Button data-qa="refresh-button" onClick={() => refreshPage()}>
-        Refresh
-      </Button>
-    </>
+    <StyledButton
+      data-qa="refresh-button"
+      onClick={() => refreshPage()}
+      variant="outline-light"
+    >
+      <img src={refreshIcon} alt="refresh-icon" />
+    </StyledButton>
   );
 };
 
