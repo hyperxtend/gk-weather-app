@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IfFulfilled, IfPending, IfRejected, useAsync } from 'react-async';
-import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
 
+import {
+  StyledDataContainer,
+  WeatherIconContainer,
+} from '../styled-components';
 import ErrorMessage from '../error-message';
 import LoadingSpinner from '../loading-spinner';
 import getWeatherConditions from '../../api';
@@ -19,39 +21,6 @@ const getWeatherData = async (latitude, longitude, key) => {
     return Promise.reject(error);
   }
 };
-
-const StyledContainer = styled(Container)`
-  width: 45%;
-  background-color: rgba(250, 250, 250, 0.2);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 1rem 2rem 1rem 2rem;
-
-  h1,
-  h2 {
-    font-size: 3rem;
-    padding-top: 1rem;
-  }
-
-  @media (max-width: 1480px) {
-    width: 400px;
-    padding: 0.5rem;
-    button {
-      width: 50px;
-    }
-
-    @media (max-width: 700px) {
-      width: 300px;
-  }
-`;
-
-const WeatherIconContainer = styled.div`
-  img {
-    transform: scale(1.5);
-  }
-`;
 
 const GetWeather = ({ latitude, longitude }) => {
   const asyncData = useAsync({
@@ -71,7 +40,7 @@ const GetWeather = ({ latitude, longitude }) => {
       </IfPending>
       <IfFulfilled state={asyncData} data-qa="weather-data-fulfilled">
         {(data) => (
-          <StyledContainer>
+          <StyledDataContainer>
             <RefreshButton data-qa="refresh-button" />
             <h1>{data.name}</h1>
             <h2>{roundOff(data.main.temp)}°C</h2>
@@ -93,7 +62,7 @@ const GetWeather = ({ latitude, longitude }) => {
             </h5>
 
             <h5>Humidity: {data.main.humidity}%</h5>
-          </StyledContainer>
+          </StyledDataContainer>
         )}
       </IfFulfilled>
     </>

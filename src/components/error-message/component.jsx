@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-const StyledErrorMessage = styled.h2`
-  color: #ed3a0e;
-  font-size: 4rem;
-  font-weight: 600;
-`;
+import { StyledErrorMessage } from '../styled-components';
 
 const ErrorMessage = ({ errorMessage }) => {
   return (
