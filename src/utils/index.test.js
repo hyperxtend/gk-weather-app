@@ -8,41 +8,13 @@ import {
 
 describe('handleLocationError', () => {
   const errorData = [
-    { code: 1, message: 'User denied the request for Geolocation' },
-    { code: 2, message: 'Location information is unavailable' },
-    { code: 3, message: 'The request to get user location timed out' },
-    { code: 4, message: 'An unknown error occurred' },
+    { code: 1, message: 'User denied the request for Geolocation.' },
   ];
 
   test('checks if handle error function for 1st error code', () => {
     window.alert = jest.fn();
     handleLocationError(errorData[0].code);
     expect(window.alert).toBeCalledWith(errorData[0].message);
-  });
-
-  test('checks if handle error function for 2nd error code', () => {
-    window.alert = jest.fn();
-    handleLocationError(errorData[1].code);
-    expect(window.alert).toBeCalledWith(errorData[1].message);
-  });
-
-  test('checks if handle error function for 3rd error code', () => {
-    window.alert = jest.fn();
-    handleLocationError(errorData[2].code);
-    expect(window.alert).toBeCalledWith(errorData[2].message);
-  });
-
-  test('checks if handle error function for 4th error code', () => {
-    window.alert = jest.fn();
-    handleLocationError(errorData[3].code);
-    expect(window.alert).toBeCalledWith(errorData[3].message);
-  });
-
-  test('checks if handle error function for any other error code', () => {
-    window.alert = jest.fn();
-    const errorCode = 23;
-    handleLocationError(errorCode);
-    expect(window.alert).toBeCalledWith(errorData[3].message);
   });
 });
 
