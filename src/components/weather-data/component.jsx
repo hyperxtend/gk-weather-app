@@ -13,7 +13,7 @@ import APIKey from '../../api/constants';
 import { milesToKilometersAHour, roundOff } from '../../utils';
 import RefreshButton from '../refresh-button/component';
 
-const getWeatherData = async (latitude, longitude, key) => {
+export const getWeatherData = async (latitude, longitude, key) => {
   try {
     const response = await getWeatherConditions(latitude, longitude, key);
     return response;
@@ -32,13 +32,16 @@ const GetWeather = ({ latitude, longitude }) => {
 
   return (
     <>
-      <IfRejected state={asyncData} data-qa="weather-data-rejected">
-        <ErrorMessage errorMessage="Sorry could not retrieve weather results " />
+      <IfRejected state={asyncData} data-qa="rejected-state">
+        <ErrorMessage
+          data-qa="error-message"
+          errorMessage="Sorry could not retrieve weather results "
+        />
       </IfRejected>
-      <IfPending state={asyncData} data-qa="weather-data-pending">
-        <LoadingSpinner loadingMessage="Loading..." />
+      <IfPending state={asyncData} data-qa="pending-state">
+        <LoadingSpinner data-qa="loading-spinner" loadingMessage="Loading..." />
       </IfPending>
-      <IfFulfilled state={asyncData} data-qa="weather-data-fulfilled">
+      <IfFulfilled state={asyncData} data-qa="fulfilled-state">
         {(data) => (
           <StyledDataContainer>
             <RefreshButton data-qa="refresh-button" />
