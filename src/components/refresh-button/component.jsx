@@ -3,7 +3,7 @@ import React from 'react';
 import { StyledButton } from '../styled-components';
 import refreshIcon from '../../assets/refresh-icon.png';
 
-const refreshPage = () => window.location.reload();
+export const refreshPage = () => window.location.reload(true);
 
 const RefreshButton = () => {
   return (
