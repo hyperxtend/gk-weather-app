@@ -4,7 +4,7 @@ View Weather conditions of you current location, get Today's temperature - the h
 
 ## Project Demo
 
-Click on [here](https://hyperxtend.github.io/TicTacReact/) to view demo
+Click on [here](https://hyperxtend.github.io/gk-weather-app/) to view demo
 
 **This project was created using**
 
