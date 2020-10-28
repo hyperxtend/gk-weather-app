@@ -10,7 +10,11 @@ import ErrorMessage from '../error-message';
 import LoadingSpinner from '../loading-spinner';
 import getWeatherConditions from '../../api';
 import APIKey from '../../api/constants';
-import { milesToKilometersAHour, roundOff } from '../../utils';
+import {
+  milesToKilometersAHour,
+  roundOff,
+  getAttributeOfWeather,
+} from '../../utils';
 import RefreshButton from '../refresh-button/component';
 
 export const getWeatherData = async (latitude, longitude, key) => {
@@ -45,26 +49,36 @@ const GetWeather = ({ latitude, longitude }) => {
         {(data) => (
           <StyledDataContainer>
             <RefreshButton data-qa="refresh-button" />
-            <h1>{data.name}</h1>
-            <h2>{roundOff(data.main.temp)}°C</h2>
+            <h1>{getAttributeOfWeather(data, 'name').name}</h1>
+            <h2>{roundOff(getAttributeOfWeather(data, 'main').main.temp)}°C</h2>
             <WeatherIconContainer>
               <img
-                src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
+                src={`http://openweathermap.org/img/w/${
+                  getAttributeOfWeather(data, 'weather').weather[0].icon
+                }.png`}
                 alt="weather-icon"
               />
             </WeatherIconContainer>
             <h4>
-              {roundOff(data.main.temp_min)}°C / {roundOff(data.main.temp_max)}
+              {roundOff(getAttributeOfWeather(data, 'main').main.temp_min)}°C /
+              {roundOff(getAttributeOfWeather(data, 'main').main.temp_max)}
               °C
             </h4>
-            <h2>{data.weather[0].main}</h2>
-            <h3>{data.weather[0].description}</h3>
+            <h2>{getAttributeOfWeather(data, 'weather').weather[0].main}</h2>
+            <h3>
+              {getAttributeOfWeather(data, 'weather').weather[0].description}
+            </h3>
             <h5>
-              Wind Speed: {milesToKilometersAHour(data.wind.speed)}
+              Wind Speed:
+              {milesToKilometersAHour(
+                getAttributeOfWeather(data, 'wind').wind.speed
+              )}
               km/h
             </h5>
 
-            <h5>Humidity: {data.main.humidity}%</h5>
+            <h5>
+              Humidity: {getAttributeOfWeather(data, 'main').main.humidity}%
+            </h5>
           </StyledDataContainer>
         )}
       </IfFulfilled>
