@@ -1,15 +1,20 @@
-export const handleLocationError = (error) => {
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      return 'User denied the request for Geolocation.';
-    case error.POSITION_UNAVAILABLE:
-      return 'Location information is unavailable.';
-    case error.TIMEOUT:
-      return 'The request to get user location timed out.';
-    case error.UNKNOWN_ERROR:
-      return 'An unknown error occurred.';
+export const handleLocationError = (errorCode) => {
+  switch (errorCode) {
+    case 1:
+      alert('User denied the request for Geolocation');
+      break;
+    case 2:
+      alert('Location information is unavailable');
+      break;
+    case 3:
+      alert('The request to get user location timed out');
+      break;
+    case 4:
+      alert('An unknown error occurred');
+      break;
     default:
-      return 'An unknown error occurred.';
+      alert('An unknown error occurred');
+      break;
   }
 };
 
@@ -27,9 +32,9 @@ export const getUsersLocation = () => {
       });
     }
   } catch (error) {
-    Promise.reject(error);
+    return Promise.reject(error);
   }
-  return 'Geolocation is not supported by this browser';
+  alert('Geolocation is not supported by this browser');
 };
 
 export const roundOff = (number) => number.toFixed(0);

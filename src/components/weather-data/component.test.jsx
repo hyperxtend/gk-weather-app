@@ -14,10 +14,12 @@ describe('<WeatherData />', () => {
         isPending: true,
       });
     });
-    test('checks if spinner exists while state is pending', () => {
-      expect(
-        component.find(select('weather-data-pending')).exists()
-      ).toBeTruthy();
+    test('checks if pending state exists while state is pending', () => {
+      expect(component.find(select('pending-state')).exists()).toBeTruthy();
+    });
+
+    test('checks if  loading spinner exists while state is pending', () => {
+      expect(component.find(select('loading-spinner')).exists()).toBeTruthy();
     });
   });
 
@@ -28,10 +30,8 @@ describe('<WeatherData />', () => {
         isFulfilled: true,
       });
     });
-    test('checks if weather data exists when state is fulfilled', () => {
-      expect(
-        component.find(select('weather-data-fulfilled')).exists()
-      ).toBeTruthy();
+    test('checks if fulfilled state exists when state is fulfilled', () => {
+      expect(component.find(select('fulfilled-state')).exists()).toBeTruthy();
     });
   });
 
@@ -42,10 +42,11 @@ describe('<WeatherData />', () => {
         isRejected: true,
       });
     });
-    test('checks if text exists when state is rejected', () => {
-      expect(
-        component.find(select('weather-data-rejected')).exists()
-      ).toBeTruthy();
+    test('checks if rejected state exists when state is rejected', () => {
+      expect(component.find(select('rejected-state')).exists()).toBeTruthy();
+    });
+    test('checks if error-message exists when state is rejected', () => {
+      expect(component.find(select('error-message')).exists()).toBeTruthy();
     });
   });
 });

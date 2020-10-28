@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import * as reactAsync from 'react-async';
 import { select } from 'qa-utilities';
 
-import UserCoordinates from './component';
+import UserCoordinates, { useUsersLocation } from './component';
 
 describe('<UserCoordinates />', () => {
   const component = shallow(<UserCoordinates />);
@@ -14,12 +14,16 @@ describe('<UserCoordinates />', () => {
         isPending: true,
       });
     });
-    test('checks if spinner exists while state is pending', () => {
-      expect(component.find(select('location-pending')).exists()).toBeTruthy();
+    test('checks if pending state exists while state is pending', () => {
+      expect(component.find(select('pending-state')).exists()).toBeTruthy();
+    });
+
+    test('checks if  loading spinner exists while state is pending', () => {
+      expect(component.find(select('loading-spinner')).exists()).toBeTruthy();
     });
   });
 
-  describe('Pending State', () => {
+  describe('Fulfilled State', () => {
     beforeEach(() => {
       reactAsync.useAsync = jest.fn().mockReturnValue({
         isPending: false,
@@ -27,9 +31,7 @@ describe('<UserCoordinates />', () => {
       });
     });
     test('checks if coordinates exists when state is fulfilled', () => {
-      expect(
-        component.find(select('location-fulfilled')).exists()
-      ).toBeTruthy();
+      expect(component.find(select('fulfilled-state')).exists()).toBeTruthy();
     });
   });
 
@@ -40,8 +42,25 @@ describe('<UserCoordinates />', () => {
         isRejected: true,
       });
     });
-    test('checks if text exists when state is rejected', () => {
-      expect(component.find(select('location-rejected')).exists()).toBeTruthy();
+    test('checks if rejected state exists when state is rejected', () => {
+      expect(component.find(select('rejected-state')).exists()).toBeTruthy();
     });
+    test('checks if error message exists when state is rejected', () => {
+      expect(component.find(select('error-message')).exists()).toBeTruthy();
+    });
+  });
+});
+
+describe('useUsersLocation', () => {
+  test('checks if users location was rejected in promise', async () => {
+    await useUsersLocation().catch((error) =>
+      expect(error).rejects.toThrowError(new Error(error))
+    );
+  });
+
+  test('checks if users location was rejected in promise', async () => {
+    await useUsersLocation().catch((error) =>
+      expect(error).rejects.toThrowError(new Error(error))
+    );
   });
 });
